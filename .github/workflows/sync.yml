@@ -20,6 +20,7 @@ jobs:
         run: go install github.com/furmanp/gitlab-activity-importer/cmd/go@latest
 
       - name: Run importer
+        run: gitlab-activity-importer
         env:
           BASE_URL: https://gitlab.com
           GITLAB_USERNAME: axel.rock
