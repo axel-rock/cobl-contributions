@@ -1,0 +1,30 @@
+name: Sync GitLab Activity
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # Daily at 6 AM UTC
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.21"
+
+      - name: Install gitlab-activity-importer
+        run: go install github.com/furmanp/gitlab-activity-importer/cmd/go@latest
+
+      - name: Run importer
+        env:
+          BASE_URL: https://gitlab.com
+          GITLAB_USERNAME: axel.rock
+          GH_USERNAME: axel-rock
+          COMMITER_EMAIL: axel.rock@thinkeo.io
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          ORIGIN_TOKEN: ${{ secrets.ORIGIN_TOKEN }}
+          ORIGIN_REPO_URL: https://github.com/axel-rock/cobl-contributions.git
