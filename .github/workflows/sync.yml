@@ -25,7 +25,8 @@ jobs:
           BASE_URL: https://gitlab.com
           GITLAB_USERNAME: axel.rock
           GH_USERNAME: axel-rock
+          COMMITER_NAME: axel-rock
           COMMITER_EMAIL: axel.rock@thinkeo.io
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-          ORIGIN_TOKEN: ${{ secrets.ORIGIN_TOKEN }}
+          ORIGIN_TOKEN: ${{ secrets.GH_TOKEN }}
           ORIGIN_REPO_URL: https://github.com/axel-rock/cobl-contributions.git
