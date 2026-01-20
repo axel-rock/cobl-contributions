@@ -17,10 +17,10 @@ jobs:
           go-version: "1.23"
 
       - name: Install gitlab-activity-importer
-        run: go install github.com/furmanp/gitlab-activity-importer@latest
+        run: go install github.com/furmanp/gitlab-activity-importer/cmd@latest
 
       - name: Run importer
-        run: gitlab-activity-importer
+        run: cmd
         env:
           BASE_URL: https://gitlab.com
           GITLAB_USERNAME: axel.rock
